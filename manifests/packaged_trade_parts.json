@@ -1,0 +1,72 @@
+[
+  {
+    "file": "BTC_Trades_Parte_01.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_01.zip",
+    "bytes": 365657899,
+    "sha256": "c3852cb1a16166ffb4d6305e32fe596e34da969f87c1522f7779c05fc6649826",
+    "members": 36
+  },
+  {
+    "file": "BTC_Trades_Parte_02.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_02.zip",
+    "bytes": 314312228,
+    "sha256": "b7049b1a473767a0a7ea93f35b5d6ee99ef2a9b736004909cfe323dfc84233b9",
+    "members": 18
+  },
+  {
+    "file": "BTC_Trades_Parte_03.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_03.zip",
+    "bytes": 372678034,
+    "sha256": "32d1638c1cedf95d89abbac4af946b3ddc173ea72a9c740ef7c91dcba3297a83",
+    "members": 18
+  },
+  {
+    "file": "BTC_Trades_Parte_04.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_04.zip",
+    "bytes": 337109019,
+    "sha256": "b3b64db5df033e3691ddb5c7b1285795ab7119f857ce86b6574d8ed7d316e964",
+    "members": 24
+  },
+  {
+    "file": "BTC_Trades_Parte_05.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_05.zip",
+    "bytes": 354008313,
+    "sha256": "98f2340e34fd3e69e4b11b9a8b547f0fa15ee1530a7545e19b86a189f3971a90",
+    "members": 24
+  },
+  {
+    "file": "BTC_Trades_Parte_06.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_06.zip",
+    "bytes": 365894109,
+    "sha256": "320e26682bc537d0d5c7323a9292436e00c8f59244bd98b2b1ff19f65104d637",
+    "members": 38
+  },
+  {
+    "file": "BTC_Trades_Parte_07.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_07.zip",
+    "bytes": 355730057,
+    "sha256": "b4a0b1d322f5395fc573a9cb1147a394b8acea85ff175b08f29a35f658ef5d23",
+    "members": 46
+  },
+  {
+    "file": "BTC_Trades_Parte_08.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_08.zip",
+    "bytes": 365439806,
+    "sha256": "444b1f951a280002f49296ed84296792eee8bc4240128da5ba452d62d01f9bc8",
+    "members": 18
+  },
+  {
+    "file": "BTC_Trades_Parte_09.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_09.zip",
+    "bytes": 353259306,
+    "sha256": "c60a856836050101ddd584bd78e8155c07110eaca3749f4182f3fcb0fe0eff88",
+    "members": 34
+  },
+  {
+    "file": "BTC_Trades_Parte_10.zip",
+    "local_path": "/workspace/scratch/aa183bf258a9/deliverables/BTC_Trades_Parte_10.zip",
+    "bytes": 285738135,
+    "sha256": "e19b2451d7a01ade47c3942804ad7f05368ebdc47e4c350348787cd42e851021",
+    "members": 20
+  }
+]

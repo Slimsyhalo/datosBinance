@@ -1,0 +1,137 @@
+[
+  {
+    "path": "data/normalized/macro/DGS10.csv",
+    "sha256": "f7ed794b299a2774789039f2e3b93c3325dcf5fce2e278a4b46edbbb16c0d74a",
+    "bytes": 1726
+  },
+  {
+    "path": "data/normalized/macro/DGS2.csv",
+    "sha256": "31ee2ce98f4a82ae6c1ec92eaaef9a4ab4be09cefff8e94a4ba636d754d164b7",
+    "bytes": 1726
+  },
+  {
+    "path": "data/normalized/macro/UNRATE.csv",
+    "sha256": "411a701b8297490807fd285e01623de42da48aab4305a0a4375b0238190a4922",
+    "bytes": 84
+  },
+  {
+    "path": "data/normalized/macro/scheduled_events.json",
+    "sha256": "1e82e60c1e98a91102335002ad9c326ec4740d8be977f29a5da6b8d9dcadb1b2",
+    "bytes": 4998
+  },
+  {
+    "path": "data/normalized/macro/DFF.csv",
+    "sha256": "c0f6c759ed3815ecbdd966bda7cf3fb45eb4b4b1776e92295755c49041bf7ef2",
+    "bytes": 2453
+  },
+  {
+    "path": "data/normalized/macro/CPIAUCSL.csv",
+    "sha256": "8424f9bcdf20dd976b4c4e9ad39dda9161df871399179194b75e55d7a5a801ae",
+    "bytes": 83
+  },
+  {
+    "path": "data/normalized/macro/VIXCLS.csv",
+    "sha256": "bd2bc2374a87eb4591439c2933769981ca77dbb96a6e4c45db7a9fea31b84483",
+    "bytes": 1864
+  },
+  {
+    "path": "data/normalized/execution_costs/scenarios.csv",
+    "sha256": "c498fef82516bd92a3f1f9c2c8580bcc72580ab44aded7488fd048a0b9f17ce5",
+    "bytes": 1049
+  },
+  {
+    "path": "data/normalized/BTCUSDT/metrics.csv.gz",
+    "sha256": "558bff1a94a66756fdde9c65d5cd449c0954d3d7e5cb9b3d31d4af1e2bffc403",
+    "bytes": 1658203
+  },
+  {
+    "path": "data/normalized/BTCUSDT/fundingRate.csv.gz",
+    "sha256": "18da32a50c1aa0e9c21d224c7da11914b99221c630a07aced988951c8688a32e",
+    "bytes": 4837
+  },
+  {
+    "path": "data/normalized/BTCUSDT/bookDepth.csv.gz",
+    "sha256": "582a85080fd945609729057f76097e0b3d296dd85e45103f48aa9842c09f5529",
+    "bytes": 83639086
+  },
+  {
+    "path": "data/normalized/ETHUSDT/indexPriceKlines/1m.csv.gz",
+    "sha256": "9bac8b5f9a8d48b2ce0dd1c84bb51d6390ca0639a2a585c18c005ccd8f4055e7",
+    "bytes": 5185701
+  },
+  {
+    "path": "data/normalized/ETHUSDT/premiumIndexKlines/1m.csv.gz",
+    "sha256": "b87091efb72060f975500ffc5251983e7621e50a1a9ff1173f7c4eca6abb0a01",
+    "bytes": 4841971
+  },
+  {
+    "path": "data/normalized/ETHUSDT/klines/15min.csv.gz",
+    "sha256": "ab68fd5f9c35f564ce2ef2d0c69acc1f934918e7a621cfb1c1ae14fb1a03bab8",
+    "bytes": 716730
+  },
+  {
+    "path": "data/normalized/ETHUSDT/klines/1m.csv.gz",
+    "sha256": "28d41649d19c493659294e9fc5d5157559ee9b6a7a404e78541f24136dee4d09",
+    "bytes": 10101411
+  },
+  {
+    "path": "data/normalized/ETHUSDT/klines/5min.csv.gz",
+    "sha256": "69476e0ac4c2c0654535a94b749987ae8d721ed1add1ac073232c3c75744e75f",
+    "bytes": 2070781
+  },
+  {
+    "path": "data/normalized/ETHUSDT/klines/1h.csv.gz",
+    "sha256": "dcd8583f6e9f66b1bcd8f4f7c377914e74637f8896f0aa7314ee8e0ce395e6c9",
+    "bytes": 187777
+  },
+  {
+    "path": "data/normalized/ETHUSDT/markPriceKlines/1m.csv.gz",
+    "sha256": "187cde791c4b9d3aab71fcdeeae554735ccf35b24fc6755cb4a8e68e54625d0e",
+    "bytes": 6471593
+  },
+  {
+    "path": "data/normalized/BTCUSDT/indexPriceKlines/1m.csv.gz",
+    "sha256": "f08988cc609072769a2626385b46d223f09bbc388cb9b0533e35b84ccbddc31d",
+    "bytes": 5846858
+  },
+  {
+    "path": "data/normalized/BTCUSDT/premiumIndexKlines/1m.csv.gz",
+    "sha256": "3bcc046d3d91c190dae1d3d4d51ef0aa53737bae9603a27870b1b096f7de342d",
+    "bytes": 4790295
+  },
+  {
+    "path": "data/normalized/BTCUSDT/klines/15min.csv.gz",
+    "sha256": "fcf6c856e1fd7cd3f915fa9ebb4590b8943812df45b0415ec771a7c408e679f9",
+    "bytes": 691549
+  },
+  {
+    "path": "data/normalized/BTCUSDT/klines/1m.csv.gz",
+    "sha256": "c02823258e1204d9d2117b235a51d08b48359cd5b14b26dcd277c3512f3e3767",
+    "bytes": 9699359
+  },
+  {
+    "path": "data/normalized/BTCUSDT/klines/5min.csv.gz",
+    "sha256": "3f6cdbed8ccd80663c1a121f4df6dbad15312f0cde1727ae38520abc1e1b90d8",
+    "bytes": 2000840
+  },
+  {
+    "path": "data/normalized/BTCUSDT/klines/1h.csv.gz",
+    "sha256": "6a7d9006f52c12edba1e0910fbe53a6cb19cf49194dea2d3d6bea9ba0ea5b3d6",
+    "bytes": 181011
+  },
+  {
+    "path": "data/normalized/BTCUSDT/markPriceKlines/1m.csv.gz",
+    "sha256": "ccb15320dc42380766966d84b0399bce128b7f0fb497580f71eab54b202eaa52",
+    "bytes": 5640759
+  },
+  {
+    "path": "data/features/ETHUSDT/1m.csv.gz",
+    "sha256": "9f849cf3d52c60525701d6ec176b89e597879ce332044757a62a6c8d76f67004",
+    "bytes": 33616097
+  },
+  {
+    "path": "data/features/BTCUSDT/1m.csv.gz",
+    "sha256": "071076b6e3708dde781194a4b27fa33fd3420724309ec422787223c199890b83",
+    "bytes": 36404329
+  }
+]
