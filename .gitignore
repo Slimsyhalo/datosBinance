@@ -11,5 +11,6 @@ data/joint/
 campaign-input/
 campaign-metadata/
 campaign-download/
+downloaded-dataset/
 dist/
 release-assets/

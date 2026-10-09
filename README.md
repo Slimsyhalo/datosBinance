@@ -2,12 +2,16 @@
 
 Dataset auditable de BTCUSDT y ETHUSDT, contratos perpetuos Binance USDⓈ-M Futures.
 Ventana solicitada: **2026-05-09 00:00:00 UTC → 2026-10-09 00:00:00 UTC, extremo final exclusivo**.
-Son cinco meses calendario completos hasta el último día completo al iniciar esta campaña.
+Es una ventana móvil de cinco meses hasta el último día completo al iniciar esta campaña.
 Mercado elegido por continuidad con Binance QuantLab; no mezclar con Spot, COIN-M o precios de otro exchange.
 
 Repositorio publicado: https://github.com/Slimsyhalo/datosBinance.
 
-Checkpoint inicial: [Release dataset-2026-10-09](https://github.com/Slimsyhalo/datosBinance/releases/tag/dataset-2026-10-09). Descargar el paquete principal y las diez partes BTC; extraer todos en una misma carpeta. Cobertura parcial: 727/1210 fuentes, 483 pendientes. Velas 1m completas de ambos activos; trades BTC 138/153 días, ETH trades y L2 histórico completo pendientes.
+[Descargar conjunto de BTC y ETH](https://github.com/Slimsyhalo/datosBinance/releases/tag/joint-BTC-ETH-37966554294-1). Fuentes verificadas: **1206/1210**; 4 archivos fuente pendientes. Panel conjunto: **220,320 minutos UTC**. OHLCV y trades completos y auditados: **Sí**.
+
+Los ZIP conjuntos contienen velas, auxiliares, indicadores, macro y escenarios de costos. El catálogo JOINT_DELIVERY.json enlaza todos los trades individuales de ambos activos en sus doce Releases mensuales, con miembros, tamaños y hashes. Extraer los paquetes manteniendo sus rutas data/.
+
+Pendientes concretos: bookDepth del 2026-10-08 y funding mensual de octubre para ambos activos; la API de funding respondió HTTP 451. Macro conserva seis series FRED y los calendarios adquiridos; DTWEXBGS agotó el tiempo de espera. L2 histórico completo y costos reales de cuenta no están adquiridos.
 
 **Estado real de esta entrega:** consultar [reports/QUALITY.md](reports/QUALITY.md) y
 [reports/DELIVERY.md](reports/DELIVERY.md). Un script, una URL o un archivo planificado no es un dato adquirido.
@@ -71,7 +75,7 @@ Los datos grandes quedan fuera del historial Git. Para subirlos a **GitHub Relea
 el workflow `Acquire and publish research data` descarga en GitHub y publica activos ZIP
 de hasta unos 400 MB, con índices y QA. Seleccionar cada activo y cada uno de los seis meses
 que intersectan la ventana. No se activa trading ni se requieren credenciales Binance.
-El workflow se ejecuta manualmente: no afirmar que ya se ejecutó o que sus datos ya están publicados.
+La campaña conjunta ya se ejecutó y publicó: consultar el catálogo más reciente. Las futuras campañas se activan manualmente.
 
 Releases tienen almacenamiento y límites propios de GitHub; revisar las políticas vigentes antes de campañas adicionales.
 El repositorio de código es pequeño; el volumen de tick data no debe subirse mediante commits normales.
@@ -98,4 +102,14 @@ El workflow manual `Complete BTC ETH five-month dataset` cubre la ventana aproba
 
 https://github.com/Slimsyhalo/datosBinance/releases/tag/joint-BTC-ETH-37966554294-1
 
-Fuentes verificadas: 1206/1210. Pendientes: 4. OHLCV y trades completos y auditados: True. Véase reports/JOINT_DELIVERY.md para cobertura exacta y límites.
+Fuentes verificadas: 1206/1210. Pendientes: 4. OHLCV y trades completos y auditados: Sí. Véase reports/JOINT_DELIVERY.md para cobertura exacta y límites.
+
+## Descargar todo para analizar en conjunto
+
+Usar el código de la rama `main` e instalarlo con `python -m pip install .`. Requiere GitHub CLI (`gh`) autenticado. El descargador verifica el tamaño y SHA256 de cada ZIP y reúne los datos en una misma carpeta. Conserva los indicadores de la ventana completa; los indicadores mensuales no los sobrescriben. Los trades originales permanecen en sus ZIP diarios.
+
+```bash
+python -m quantdata.fetch_published --tag joint-BTC-ETH-37966554294-1 --output conjunto-btc-eth
+```
+
+La carpeta `release-cache/` permite reutilizar descargas verificadas; requiere espacio además de los datos extraídos. Los límites y faltantes están en `reports/QUALITY.json` y `reports/MISSING.json`.
