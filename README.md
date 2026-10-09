@@ -5,18 +5,18 @@ Ventana solicitada: **2026-05-09 00:00:00 UTC → 2026-10-09 00:00:00 UTC, extre
 Son cinco meses calendario completos hasta el último día completo al iniciar esta campaña.
 Mercado elegido por continuidad con Binance QuantLab; no mezclar con Spot, COIN-M o precios de otro exchange.
 
-**Repositorio publicado: https://github.com/Slimsyhalo/datosBinance.
+Repositorio publicado: https://github.com/Slimsyhalo/datosBinance.
 
-Datos disponibles: [Release dataset-2026-10-09](https://github.com/Slimsyhalo/datosBinance/releases/tag/dataset-2026-10-09). Descargar el paquete principal y las diez partes BTC; extraer todos en una misma carpeta. Cobertura parcial: 727/1210 fuentes, 483 pendientes. Velas 1m completas de ambos activos; trades BTC 138/153 días, ETH trades y L2 histórico completo pendientes.
+Checkpoint inicial: [Release dataset-2026-10-09](https://github.com/Slimsyhalo/datosBinance/releases/tag/dataset-2026-10-09). Descargar el paquete principal y las diez partes BTC; extraer todos en una misma carpeta. Cobertura parcial: 727/1210 fuentes, 483 pendientes. Velas 1m completas de ambos activos; trades BTC 138/153 días, ETH trades y L2 histórico completo pendientes.
 
-Estado real de esta entrega:** consultar [reports/QUALITY.md](reports/QUALITY.md) y
+**Estado real de esta entrega:** consultar [reports/QUALITY.md](reports/QUALITY.md) y
 [reports/DELIVERY.md](reports/DELIVERY.md). Un script, una URL o un archivo planificado no es un dato adquirido.
 No existe aún certificación integral para backtest de scalping con L2 histórico completo.
 
 | Categoría solicitada | Contenido | Limitación que debe conservarse |
 |---|---|---|
 | Precio y volumen OHLCV | Velas 1m originales; derivación 5m, 15m y 1h | No rellenar huecos ni derivar velas incompletas |
-| Trades individuales | ZIP diarios `trades`: ID, precio, cantidad, quote qty, tiempo y maker side | No sustituir por aggTrades; auditoría completa de las 138 particiones BTC adquiridas; ETH pendiente |
+| Trades individuales | ZIP diarios `trades`: ID, precio, cantidad, quote qty, tiempo y maker side | No sustituir por aggTrades; auditoría completa por partición; consultar el catálogo más reciente |
 | Order Book L2 | `bookDepth` histórico como proxy agregado; capturador snapshot + diffs L2 | bookDepth **no** es L2 por niveles de precio; no permite reconstruirlo |
 | Futures y open interest | Mark, index, premium index, funding, métricas OI/ratios | APIs y archivos tienen coberturas distintas; consultar faltantes |
 | Volatilidad y tendencia | ATR14, RSI14, EMA20/50/200, volatilidad 30/60m, z-score y VWAP diario | Calculados al cierre; ventanas reiniciadas tras huecos |
@@ -89,3 +89,7 @@ El repositorio de código es pequeño; el volumen de tick data no debe subirse m
 Uso de datos sujeto a los términos de cada fuente, incluidos
 https://github.com/binance/binance-public-data/blob/master/TERMS_AND_CONDITIONS.md.
 No se concede una licencia distinta sobre datos de terceros.
+
+## Adquisición conjunta
+
+El workflow manual `Complete BTC ETH five-month dataset` cubre la ventana aprobada mediante doce campañas mensuales, publica sus archivos y construye una Release conjunta. Los indicadores se recalculan sobre la ventana completa. El panel `data/joint/BTC_ETH_1m.csv.gz` alinea BTC y ETH; el catálogo enlaza todos los trades, hashes y faltantes. Cada campaña registra el tiempo de ejecución medido, excluyendo su cola. Publicar datos no implica certificar L2 histórico ni costos reales de cuenta.

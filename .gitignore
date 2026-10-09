@@ -7,5 +7,9 @@ data/raw/
 data/normalized/
 data/features/
 data/live/
+data/joint/
+campaign-input/
+campaign-metadata/
+campaign-download/
 dist/
 release-assets/
