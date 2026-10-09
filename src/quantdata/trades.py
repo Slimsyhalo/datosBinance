@@ -6,13 +6,15 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from .acquire import atomic_json, sha256, utcnow
+from .acquire import atomic_json, sha256, utcnow, plan
 
 
 def audit_trades(config, root):
     root = Path(root)
     records = json.loads((root / "manifests/acquisition.json").read_text())
-    trades = sorted((r for r in records if r["category"] == "trades" and r["status"] == "verified"),
+    requested_keys = {r['key'] for r in plan(config)}
+    trades = sorted((r for r in records if r["category"] == "trades" and r["status"] == "verified"
+                     and r['key'] in requested_keys),
                     key=lambda r: (r["symbol"], r["date"]))
     existing_path = root / "reports/trades_full.json"
     previous_results = json.loads(existing_path.read_text())["partitions"] if existing_path.exists() else []

@@ -114,6 +114,7 @@ def audit(config, root):
     records_path = root / "manifests/acquisition.json"
     records = json.loads(records_path.read_text()) if records_path.exists() else []
     requested = plan(config)
+    requested_keys = {r['key'] for r in requested}
     indexed = {r["key"]: r for r in records}
     report = {"generated_at_utc": utcnow(), "window": config, "coverage": [],
               "missing_files": [r for r in requested if indexed.get(r["key"], {}).get("status") != "verified"],
@@ -123,7 +124,8 @@ def audit(config, root):
     for symbol in config["symbols"]:
         for category in config["categories"]:
             matching = [r for r in records if r["symbol"] == symbol and r["category"] == category
-                        and r["status"] == "verified"]
+                        and r["status"] == "verified"
+                        and (r['key'] in requested_keys or r.get('repair_for') in requested_keys)]
             frames = []
             total_rows = 0
             for record in matching:
@@ -171,7 +173,9 @@ def audit(config, root):
                 except Exception as exc:
                     record["semantic_validation"] = "failed"
                     report["errors"].append({"key": record["key"], "error": str(exc)})
-            summary = {"symbol": symbol, "category": category, "verified_files": len(matching),
+            summary = {"symbol": symbol, "category": category,
+                       "verified_files": sum(r['key'] in requested_keys for r in matching),
+                       "supplemental_files": sum(r['key'] not in requested_keys for r in matching),
                        "expected_files": sum(r["symbol"] == symbol and r["category"] == category for r in requested),
                        "rows_examined": total_rows}
             if category in KLINES:
