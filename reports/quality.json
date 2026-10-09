@@ -5523,9 +5523,12 @@
   },
   "github": {
     "repository_created": true,
-    "data_uploaded": false,
+    "data_uploaded": true,
     "repository_full_name": "Slimsyhalo/datosBinance",
-    "publication_status": "source_published_in_progress; dataset_release_upload_in_progress"
+    "release_url": "https://github.com/Slimsyhalo/datosBinance/releases/tag/dataset-2026-10-09",
+    "data_assets": 11,
+    "data_bytes": 3818235201,
+    "publication_verified_at_utc": "2026-10-09T17:08:58.612179+00:00"
   },
   "network_interruption": "Acquisition processes ended with network approval cancellation. No further download retries after repeated cancellation."
 }

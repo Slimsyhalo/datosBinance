@@ -1,7 +1,7 @@
 {
   "created_at_utc": "2026-10-09T16:38:58.622649+00:00",
   "remote_repository_created": true,
-  "remote_data_uploaded": false,
+  "remote_data_uploaded": true,
   "verified_source_files": 727,
   "planned_source_files": 1210,
   "ohlcv_rows_per_symbol": 220320,
@@ -12,9 +12,13 @@
   "tests_passed": 6,
   "remaining_work": [
     "Acquire missing 483 source archives",
-    "Publish datasets as GitHub Release assets",
     "Obtain licensed price-level L2 historical source or exclude L2-dependent research",
     "Resolve point-in-time macro and historical execution costs"
   ],
-  "repository_full_name": "Slimsyhalo/datosBinance"
+  "repository_full_name": "Slimsyhalo/datosBinance",
+  "publication_verified_at_utc": "2026-10-09T17:08:58.612179+00:00",
+  "release_url": "https://github.com/Slimsyhalo/datosBinance/releases/tag/dataset-2026-10-09",
+  "release_data_assets": 11,
+  "release_checksum_assets": 2,
+  "release_data_bytes": 3818235201
 }

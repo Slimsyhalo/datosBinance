@@ -41,4 +41,4 @@ Macros: 6 de 7 series FRED, 3 calendarios BLS (15 eventos programados), calendar
 
 Costos: 18 escenarios hipotéticos de comisión y slippage; no costos históricos observados de una cuenta.
 
-GitHub: repositorio Slimsyhalo/datosBinance creado; publicación de código y Release de datos en curso. Los procesos de adquisición finalizaron por cancelación de permisos de red.
+GitHub: repositorio Slimsyhalo/datosBinance y Release de datos publicados. Once paquetes de datos (3.818.235.201 bytes), índice y checksums SHA256. Los procesos de adquisición finalizaron por cancelación de permisos de red.
