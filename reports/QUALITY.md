@@ -1,44 +1,72 @@
-# Informe de cobertura real
+# Informe de cobertura conjunta
 
-Ventana UTC: 2026-05-09 inclusive → 2026-10-09 exclusive. Generado: 2026-10-09T16:38:58.622649+00:00
+Generado: 2026-10-09T18:04:34.896482+00:00
+
+Ventana UTC: 2026-05-09 inclusive → 2026-10-09 exclusiva.
+
+Fuentes primarias verificadas: 1206/1210. Faltantes: 4.
+
+OHLCV y trades completos y auditados: Sí.
 
 | Activo | Categoría | Archivos verificados / previstos | Filas observadas | Faltantes de velas 1m |
 |---|---|---:|---:|---:|
 | BTCUSDT | klines | 35/35 | 220320 | 0 |
-| BTCUSDT | markPriceKlines | 35/35 | 218880 | 1440 |
-| BTCUSDT | indexPriceKlines | 35/35 | 218880 | 1440 |
-| BTCUSDT | premiumIndexKlines | 35/35 | 218880 | 1440 |
-| BTCUSDT | trades | 138/153 | 469234948 | — |
+| BTCUSDT | markPriceKlines | 35/35 | 220320 | 0 |
+| BTCUSDT | indexPriceKlines | 35/35 | 220320 | 0 |
+| BTCUSDT | premiumIndexKlines | 35/35 | 220320 | 0 |
 | BTCUSDT | metrics | 153/153 | 44064 | — |
 | BTCUSDT | bookDepth | 152/153 | 5157768 | — |
 | BTCUSDT | fundingRate | 5/6 | 435 | — |
 | ETHUSDT | klines | 35/35 | 220320 | 0 |
-| ETHUSDT | markPriceKlines | 35/35 | 218880 | 1440 |
-| ETHUSDT | indexPriceKlines | 35/35 | 218880 | 1440 |
-| ETHUSDT | premiumIndexKlines | 34/35 | 217440 | 2880 |
-| ETHUSDT | trades | 0/153 | 0 | — |
-| ETHUSDT | metrics | 0/153 | 0 | — |
-| ETHUSDT | bookDepth | 0/153 | 0 | — |
-| ETHUSDT | fundingRate | 0/6 | 0 | — |
+| ETHUSDT | markPriceKlines | 35/35 | 220320 | 0 |
+| ETHUSDT | indexPriceKlines | 35/35 | 220320 | 0 |
+| ETHUSDT | premiumIndexKlines | 35/35 | 220320 | 0 |
+| ETHUSDT | metrics | 153/153 | 44064 | — |
+| ETHUSDT | bookDepth | 152/153 | 5157768 | — |
+| ETHUSDT | fundingRate | 5/6 | 435 | — |
+| BTCUSDT | trades | 153/153 | 514499311 | — |
+| ETHUSDT | trades | 153/153 | 738838491 | — |
 
-Archivos verificados: 727 / 1210 previstos. Pendientes/no accesibles: 483.
+Errores semánticos de QA: 0. Particiones de trades inválidas: 0. Errores entre particiones consecutivas: 0.
 
-Trades BTC: 469,234,948 filas examinadas completamente en 138 particiones diarias. Precios/cantidades inválidos: 0; IDs no crecientes: 0; tiempos regresivos: 0; filas fuera del día: 0; inconsistencias precio×cantidad vs quote qty dentro de tolerancia: 0.
+Los trades se auditaron fila por fila; los totales corresponden a operaciones individuales. Los saltos de ID se conservan en trades_full.json y no se interpretan automáticamente como operaciones perdidas.
 
-Transiciones no consecutivas de IDs dentro de particiones: 1,108,607. Son observaciones, no prueba automática de operaciones omitidas; requieren análisis de reglas de IDs y reconciliación de volumen.
+El panel data/joint/BTC_ETH_1m.csv.gz alinea ambos activos por minuto UTC. El OI se une en timestamps exactos; no se interpola. Los indicadores se recalcularon sobre toda la ventana.
 
-OHLCV BTC y ETH: 220.320 velas 1m por activo, sin huecos. Features y velas derivadas incluidas.
+## Fuentes primarias ausentes
 
-Mark/index/premium: falta todo el día 2026-06-29 en fuentes adquiridas. ETH premium tiene además una partición no adquirida. Los huecos permanecen null.
+- `data/futures/um/daily/bookDepth/BTCUSDT/BTCUSDT-bookDepth-2026-10-08.zip` — https://data.binance.vision/data/futures/um/daily/bookDepth/BTCUSDT/BTCUSDT-bookDepth-2026-10-08.zip
+- `data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-10.zip` — https://data.binance.vision/data/futures/um/monthly/fundingRate/BTCUSDT/BTCUSDT-fundingRate-2026-10.zip
+- `data/futures/um/daily/bookDepth/ETHUSDT/ETHUSDT-bookDepth-2026-10-08.zip` — https://data.binance.vision/data/futures/um/daily/bookDepth/ETHUSDT/ETHUSDT-bookDepth-2026-10-08.zip
+- `data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-10.zip` — https://data.binance.vision/data/futures/um/monthly/fundingRate/ETHUSDT/ETHUSDT-fundingRate-2026-10.zip
 
-OI BTC: 44.064 timestamps de 5 minutos, sin huecos en la rejilla; no equivale a disponibilidad histórica certificada de cada publicación. OI ETH: no adquirido.
+## Límites del conjunto
 
-L2 por precio: no adquirido. bookDepth BTC: proxy agregado, 152/153 días; ETH: no adquirido. Captura L2 en vivo no sincronizada por error 451 en snapshot.
+- bookDepth es profundidad agregada por bandas; no contiene el L2 histórico completo por niveles de precio.
+- Macro conserva las revisiones actuales y los calendarios adquiridos; no está certificada como información conocida en cada instante histórico.
+- Comisiones y slippage son escenarios; no son costos históricos observados de la cuenta.
 
-Funding BTC: cinco archivos mensuales; datos normalizados hasta septiembre. Octubre y funding ETH pendientes.
+## Contexto macro
 
-Macros: 6 de 7 series FRED, 3 calendarios BLS (15 eventos programados), calendario FOMC en HTML. FRED usa vintage actual; sin consenso/sorpresas ni prueba point-in-time.
+| Fuente | Estado | Observaciones / filas de calendario | Reutilizada tras timeout |
+|---|---|---:|---|
+| DFF | acquired | 152 | Sí |
+| DGS2 | acquired | 108 | Sí |
+| DGS10 | acquired | 108 | Sí |
+| DTWEXBGS | error | — | No |
+| VIXCLS | acquired | 109 | Sí |
+| CPIAUCSL | acquired | 3 | Sí |
+| UNRATE | acquired | 4 | Sí |
+| cpi | acquired | 15 | Sí |
+| employment | acquired | 15 | Sí |
+| ppi | acquired | 15 | Sí |
+| fomc | acquired | 0 | No |
 
-Costos: 18 escenarios hipotéticos de comisión y slippage; no costos históricos observados de una cuenta.
+DTWEXBGS no pudo adquirirse por timeout. Los calendarios no contienen consensos ni sorpresas macro certificados. FOMC conserva el HTML oficial; sus anuncios no se inventan ni se presentan como eventos extraídos.
 
-GitHub: repositorio Slimsyhalo/datosBinance y Release de datos publicados. Once paquetes de datos (3.818.235.201 bytes), índice y checksums SHA256. Los procesos de adquisición finalizaron por cancelación de permisos de red.
+- Funding API BTCUSDT: unavailable; HTTP Error 451: .
+- Funding API ETHUSDT: unavailable; HTTP Error 451: .
+
+[Release conjunta](https://github.com/Slimsyhalo/datosBinance/releases/tag/joint-BTC-ETH-37966554294-1).
+
+[Catálogo de todos los archivos, miembros y hashes](JOINT_DELIVERY.json). [Resumen de entrega](JOINT_DELIVERY.md). [QA detallada](quality.json). [Auditoría de trades](trades_full.json).

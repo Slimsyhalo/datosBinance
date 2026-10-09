@@ -5,5 +5,75 @@
   "measurement_status": "No active-time instrumentation; wall time includes user authentication waiting and long downloads/audits. Do not treat as measured effective work time.",
   "remote_checkpoint_published": true,
   "publication_verified_at_utc": "2026-10-09T17:08:58.612179+00:00",
-  "release_url": "https://github.com/Slimsyhalo/datosBinance/releases/tag/dataset-2026-10-09"
+  "release_url": "https://github.com/Slimsyhalo/datosBinance/releases/tag/dataset-2026-10-09",
+  "completion_checkpoint": {
+    "publication_verified_at_utc": "2026-10-09T18:04:34.896482+00:00",
+    "release_url": "https://github.com/Slimsyhalo/datosBinance/releases/tag/joint-BTC-ETH-37966554294-1",
+    "verified_source_files": 1206,
+    "remaining_source_files": 4,
+    "consolidation_seconds_through_panel_generation": 1685.869085152,
+    "campaign_automation_seconds": [
+      {
+        "symbol": "BTCUSDT",
+        "month": "2026-05",
+        "seconds": 46.347808719
+      },
+      {
+        "symbol": "BTCUSDT",
+        "month": "2026-06",
+        "seconds": 66.37979707900001
+      },
+      {
+        "symbol": "BTCUSDT",
+        "month": "2026-07",
+        "seconds": 44.050392382
+      },
+      {
+        "symbol": "BTCUSDT",
+        "month": "2026-08",
+        "seconds": 53.796942578
+      },
+      {
+        "symbol": "BTCUSDT",
+        "month": "2026-09",
+        "seconds": 66.28840077999999
+      },
+      {
+        "symbol": "BTCUSDT",
+        "month": "2026-10",
+        "seconds": 36.185752480999994
+      },
+      {
+        "symbol": "ETHUSDT",
+        "month": "2026-05",
+        "seconds": 121.304673538
+      },
+      {
+        "symbol": "ETHUSDT",
+        "month": "2026-06",
+        "seconds": 250.00533068800002
+      },
+      {
+        "symbol": "ETHUSDT",
+        "month": "2026-07",
+        "seconds": 150.143766808
+      },
+      {
+        "symbol": "ETHUSDT",
+        "month": "2026-08",
+        "seconds": 163.846294116
+      },
+      {
+        "symbol": "ETHUSDT",
+        "month": "2026-09",
+        "seconds": 173.451059
+      },
+      {
+        "symbol": "ETHUSDT",
+        "month": "2026-10",
+        "seconds": 48.784120733
+      }
+    ],
+    "measurement_scope": "Measured automated elapsed durations, including source waits. Campaigns overlap; do not sum as wall time or human active work. Consolidation duration excludes subsequent packaging and publication."
+  }
 }
