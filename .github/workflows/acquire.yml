@@ -1,0 +1,74 @@
+name: Acquire and publish research data
+on:
+  workflow_dispatch:
+    inputs:
+      symbol:
+        description: Asset to download (one partition campaign per run)
+        required: true
+        type: choice
+        options: [BTCUSDT, ETHUSDT]
+      month:
+        description: Month intersecting the approved window
+        required: true
+        type: choice
+        options: ['2026-05', '2026-06', '2026-07', '2026-08', '2026-09', '2026-10']
+permissions:
+  contents: write
+concurrency:
+  group: data-${{ inputs.symbol }}-${{ inputs.month }}
+  cancel-in-progress: false
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      SYMBOL: ${{ inputs.symbol }}
+      MONTH: ${{ inputs.month }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install .
+      - name: Select bounded month
+        run: |
+          python - <<'PY'
+          import os,json,datetime as dt
+          p='config/research.json'
+          c=json.load(open(p))
+          start=dt.date.fromisoformat(os.environ['MONTH']+'-01')
+          end=(start.replace(day=28)+dt.timedelta(days=4)).replace(day=1)
+          c['start']=max(c['start'],start.isoformat())
+          c['end_exclusive']=min(c['end_exclusive'],end.isoformat())
+          c['symbols']=[os.environ['SYMBOL']]
+          json.dump(c,open(p,'w'),indent=2)
+          PY
+      - name: Acquire public source archives and audit
+        run: |
+          quantdata plan
+          quantdata download --workers 6
+          quantdata audit
+          quantdata trades-audit
+          quantdata assets
+          cp manifests/acquisition.json release-assets/ACQUISITION.json
+          cp reports/quality.json release-assets/QUALITY.json
+          cp reports/trades_full.json release-assets/TRADES_FULL.json
+          cp config/research.json release-assets/CONFIG.json
+      - name: Publish immutable campaign release
+        run: |
+          tag="data-${SYMBOL}-${MONTH}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          gh release create "$tag" --title "$SYMBOL $MONTH source dataset" --notes-file reports/QUALITY.md
+          gh release upload "$tag" release-assets/*
+      - name: Fail certification if acquired core partitions are incomplete
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('reports/quality.json'))
+          failures=[x for x in r['coverage'] if x['category'] in ('klines','trades') and x['verified_files'] != x['expected_files']]
+          t=json.load(open('reports/trades_full.json'))
+          bad_trades=[x for x in t['partitions'] if x['status']!='audited_all_rows' or x['invalid_rows'] or x['outside_partition_rows'] or x['non_increasing_id_transitions']]
+          if failures or r['errors'] or bad_trades:
+              raise SystemExit('Published partial data with explicit QA; core certification FAILED')
+          PY
