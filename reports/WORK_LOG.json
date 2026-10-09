@@ -1,0 +1,7 @@
+{
+  "request_time_utc": "2026-10-09T16:09:50Z",
+  "checkpoint_prepared_at_utc": "2026-10-09T16:41:42.270181+00:00",
+  "effective_work_seconds": null,
+  "measurement_status": "No active-time instrumentation; wall time includes user authentication waiting and long downloads/audits. Do not treat as measured effective work time.",
+  "remote_checkpoint_published": false
+}

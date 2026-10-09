@@ -1,0 +1,20 @@
+{
+  "created_at_utc": "2026-10-09T16:38:58.622649+00:00",
+  "remote_repository_created": true,
+  "remote_data_uploaded": false,
+  "verified_source_files": 727,
+  "planned_source_files": 1210,
+  "ohlcv_rows_per_symbol": 220320,
+  "btc_trade_rows": 469234948,
+  "btc_trade_partitions": 138,
+  "eth_trade_partitions": 0,
+  "trade_archive_bytes": 3469734778,
+  "tests_passed": 6,
+  "remaining_work": [
+    "Acquire missing 483 source archives",
+    "Publish datasets as GitHub Release assets",
+    "Obtain licensed price-level L2 historical source or exclude L2-dependent research",
+    "Resolve point-in-time macro and historical execution costs"
+  ],
+  "repository_full_name": "Slimsyhalo/datosBinance"
+}

@@ -1,0 +1,9 @@
+{
+  "repaired_files": [
+    "data/normalized/ETHUSDT/markPriceKlines/1m.csv.gz",
+    "data/features/BTCUSDT/1m.csv.gz"
+  ],
+  "status": "regenerated from verified local data; all gzip outputs decompressed fully without error",
+  "outputs_checked": 27,
+  "future_export_policy": "atomic replace with bounded gzip compression"
+}
