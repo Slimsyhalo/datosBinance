@@ -1,0 +1,18 @@
+[
+  {
+    "symbol": "BTCUSDT",
+    "retrieved_at_utc": "2026-10-09T18:03:44.335594+00:00",
+    "official_checksum_available": false,
+    "pages": [],
+    "status": "unavailable",
+    "error": "HTTP Error 451: "
+  },
+  {
+    "symbol": "ETHUSDT",
+    "retrieved_at_utc": "2026-10-09T18:03:44.469620+00:00",
+    "official_checksum_available": false,
+    "pages": [],
+    "status": "unavailable",
+    "error": "HTTP Error 451: "
+  }
+]

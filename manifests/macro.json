@@ -11,7 +11,9 @@
     "rows": 152,
     "sha256": "c0f6c759ed3815ecbdd966bda7cf3fb45eb4b4b1776e92295755c49041bf7ef2",
     "relative_path": "data/raw/macro/DFF.csv",
-    "last_modified": "Thu, 08 Oct 2026 20:16:33 GMT"
+    "last_modified": "Thu, 08 Oct 2026 20:16:33 GMT",
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "The read operation timed out"
   },
   {
     "series": "DGS2",
@@ -25,7 +27,9 @@
     "rows": 108,
     "sha256": "161a50233a636989d5207e6a94396aeedb3145f09fd85ae910992a51193b4a37",
     "relative_path": "data/raw/macro/DGS2.csv",
-    "last_modified": "Thu, 08 Oct 2026 20:16:36 GMT"
+    "last_modified": "Thu, 08 Oct 2026 20:16:36 GMT",
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "The read operation timed out"
   },
   {
     "series": "DGS10",
@@ -39,18 +43,20 @@
     "rows": 108,
     "sha256": "f6aa6c22f748cebd1bf99ab89e3e193be88e0a104f3a2b4a8c0a10066c108adb",
     "relative_path": "data/raw/macro/DGS10.csv",
-    "last_modified": "Thu, 08 Oct 2026 20:16:37 GMT"
+    "last_modified": "Thu, 08 Oct 2026 20:16:37 GMT",
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "The read operation timed out"
   },
   {
     "series": "DTWEXBGS",
     "label": "Broad dollar index",
     "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXBGS&cosd=2026-05-09&coed=2026-10-08",
-    "retrieved_at_utc": "2026-10-09T16:23:59.211237+00:00",
+    "retrieved_at_utc": "2026-10-09T17:51:30.400306+00:00",
     "point_in_time": false,
     "publication_timestamp": null,
     "revision_vintage": "current_at_retrieval",
     "status": "error",
-    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    "error": "The read operation timed out"
   },
   {
     "series": "VIXCLS",
@@ -64,7 +70,9 @@
     "rows": 109,
     "sha256": "5e2c012dcc6b47eea1b8abf0156fd05c59a46987afe1d0e0b5f01ee86403fa3c",
     "relative_path": "data/raw/macro/VIXCLS.csv",
-    "last_modified": "Fri, 09 Oct 2026 13:38:33 GMT"
+    "last_modified": "Fri, 09 Oct 2026 13:38:33 GMT",
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "The read operation timed out"
   },
   {
     "series": "CPIAUCSL",
@@ -78,7 +86,9 @@
     "rows": 3,
     "sha256": "ed8dfa1cc1a9dbcbf0b686c80bcb6cbe13b1f4f9a2fd45c6476fafc539039af2",
     "relative_path": "data/raw/macro/CPIAUCSL.csv",
-    "last_modified": "Fri, 11 Sep 2026 13:37:49 GMT"
+    "last_modified": "Fri, 11 Sep 2026 13:37:49 GMT",
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "The read operation timed out"
   },
   {
     "series": "UNRATE",
@@ -92,7 +102,9 @@
     "rows": 4,
     "sha256": "dc8ecd6055bae20d6d557b7dc630f4433e52635860247cf10c26d505fa893996",
     "relative_path": "data/raw/macro/UNRATE.csv",
-    "last_modified": "Fri, 02 Oct 2026 13:24:37 GMT"
+    "last_modified": "Fri, 02 Oct 2026 13:24:37 GMT",
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "The read operation timed out"
   },
   {
     "event_type": "cpi",
@@ -102,7 +114,9 @@
     "status": "acquired",
     "sha256": "36b83ba3723ac4e1d96431214b22f22bb4240718dab1ec2b6289fef9e7829580",
     "relative_path": "data/raw/macro/cpi_calendar.html",
-    "schedule_rows_parsed": 15
+    "schedule_rows_parsed": 15,
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "HTTP Error 403: Forbidden"
   },
   {
     "event_type": "employment",
@@ -112,7 +126,9 @@
     "status": "acquired",
     "sha256": "8a61955edcbf086a560c43004ed0613fec2ae25e646e04e512472e2175cb3c47",
     "relative_path": "data/raw/macro/employment_calendar.html",
-    "schedule_rows_parsed": 15
+    "schedule_rows_parsed": 15,
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "HTTP Error 403: Forbidden"
   },
   {
     "event_type": "ppi",
@@ -122,15 +138,17 @@
     "status": "acquired",
     "sha256": "ddefbf965cf6c610cf5cd680a8ea53ef75392f2c8bbea643b7d7d7a89741cbe1",
     "relative_path": "data/raw/macro/ppi_calendar.html",
-    "schedule_rows_parsed": 15
+    "schedule_rows_parsed": 15,
+    "resumed_from_initial_release": true,
+    "new_fetch_error": "HTTP Error 403: Forbidden"
   },
   {
     "event_type": "fomc",
     "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
-    "retrieved_at_utc": "2026-10-09T16:24:37.976071+00:00",
+    "retrieved_at_utc": "2026-10-09T18:03:44.196561+00:00",
     "point_in_time": false,
     "status": "acquired",
-    "sha256": "219ad6b5822d73cb5e8efa7fab354e02c42b4846d1427283780a8f470afb5085",
+    "sha256": "e362001462211a3aca6d1ecb04d4e88fb709cdc0c6c061f64fffaafe0b345832",
     "relative_path": "data/raw/macro/fomc_calendar.html",
     "schedule_rows_parsed": 0
   }

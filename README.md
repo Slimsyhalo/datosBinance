@@ -93,3 +93,9 @@ No se concede una licencia distinta sobre datos de terceros.
 ## Adquisición conjunta
 
 El workflow manual `Complete BTC ETH five-month dataset` cubre la ventana aprobada mediante doce campañas mensuales, publica sus archivos y construye una Release conjunta. Los indicadores se recalculan sobre la ventana completa. El panel `data/joint/BTC_ETH_1m.csv.gz` alinea BTC y ETH; el catálogo enlaza todos los trades, hashes y faltantes. Cada campaña registra el tiempo de ejecución medido, excluyendo su cola. Publicar datos no implica certificar L2 histórico ni costos reales de cuenta.
+
+## Último catálogo conjunto
+
+https://github.com/Slimsyhalo/datosBinance/releases/tag/joint-BTC-ETH-37966554294-1
+
+Fuentes verificadas: 1206/1210. Pendientes: 4. OHLCV y trades completos y auditados: True. Véase reports/JOINT_DELIVERY.md para cobertura exacta y límites.
