@@ -1,0 +1,79 @@
+name: Complete BTC ETH five-month dataset
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: complete-five-month-dataset
+  cancel-in-progress: false
+jobs:
+  campaign:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        symbol: [BTCUSDT, ETHUSDT]
+        month: ['2026-05','2026-06','2026-07','2026-08','2026-09','2026-10']
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install .
+      - name: Acquire, audit all rows and publish monthly sources
+        run: python -m quantdata.campaign acquire --symbol '${{ matrix.symbol }}' --month '${{ matrix.month }}'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: campaign-${{ matrix.symbol }}-${{ matrix.month }}
+          path: campaign-metadata/
+          if-no-files-found: error
+          retention-days: 7
+  consolidate:
+    needs: campaign
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install .
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: campaign-*
+          path: campaign-input
+      - name: Merge sources, recompute full-window features and publish joint catalog
+        run: python -m quantdata.campaign consolidate
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: publication
+      - name: Publish measured joint metadata checkpoint
+        run: |
+          python - <<'PY'
+          import json,shutil
+          from pathlib import Path
+          dest=Path('publication')
+          for name in ['reports/JOINT_DELIVERY.json','reports/JOINT_DELIVERY.md','reports/delivery.json','reports/DELIVERY.md','reports/quality.json','reports/trades_full.json','manifests/acquisition.json','manifests/derived_files.json','manifests/macro.json','manifests/funding_api.json']:
+              (dest/name).parent.mkdir(parents=True,exist_ok=True)
+              shutil.copyfile(name,dest/name)
+          summary=json.load(open('reports/JOINT_DELIVERY.json'))
+          f=dest/'README.md'
+          text=f.read_text()
+          insert='\n## Último catálogo conjunto\n\n'+summary['release_url']+'\n\nFuentes verificadas: '+str(summary['verified_source_files'])+'/'+str(summary['planned_source_files'])+'. Pendientes: '+str(summary['remaining_source_files'])+'. OHLCV y trades completos y auditados: '+str(summary['ohlcv_and_trades_complete_and_audited'])+'. Véase reports/JOINT_DELIVERY.md para cobertura exacta y límites.\n'
+          f.write_text(text+insert)
+          PY
+          git -C publication config user.name 'github-actions[bot]'
+          git -C publication config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C publication add reports manifests README.md
+          git -C publication commit -m 'Publish joint BTC ETH measured acquisition checkpoint'
+          git -C publication push origin main

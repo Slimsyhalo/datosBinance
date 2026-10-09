@@ -44,6 +44,10 @@ jobs:
           c['end_exclusive']=min(c['end_exclusive'],end.isoformat())
           c['symbols']=[os.environ['SYMBOL']]
           json.dump(c,open(p,'w'),indent=2)
+          from quantdata.acquire import plan
+          keys={r['key'] for r in plan(c)}
+          m='manifests/acquisition.json'
+          json.dump([r for r in json.load(open(m)) if r['key'] in keys],open(m,'w'),indent=2)
           PY
       - name: Acquire public source archives and audit
         run: |
