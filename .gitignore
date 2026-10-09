@@ -1,0 +1,11 @@
+__pycache__/
+*.egg-info/
+.venv/
+*.part
+.env
+data/raw/
+data/normalized/
+data/features/
+data/live/
+dist/
+release-assets/
